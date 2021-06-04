@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/p4-dkt-baepo/static/js/main.cda3333f.chunk.js",
+    "main.js.map": "/p4-dkt-baepo/static/js/main.cda3333f.chunk.js.map",
+    "runtime-main.js": "/p4-dkt-baepo/static/js/runtime-main.7bc213bb.js",
+    "runtime-main.js.map": "/p4-dkt-baepo/static/js/runtime-main.7bc213bb.js.map",
+    "static/js/2.53419ee3.chunk.js": "/p4-dkt-baepo/static/js/2.53419ee3.chunk.js",
+    "static/js/2.53419ee3.chunk.js.map": "/p4-dkt-baepo/static/js/2.53419ee3.chunk.js.map",
+    "index.html": "/p4-dkt-baepo/index.html",
+    "static/js/2.53419ee3.chunk.js.LICENSE.txt": "/p4-dkt-baepo/static/js/2.53419ee3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7bc213bb.js",
+    "static/js/2.53419ee3.chunk.js",
+    "static/js/main.cda3333f.chunk.js"
+  ]
+}
