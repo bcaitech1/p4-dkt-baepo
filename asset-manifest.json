@@ -1,17 +1,21 @@
 {
   "files": {
-    "main.js": "/p4-dkt-baepo/static/js/main.cda3333f.chunk.js",
-    "main.js.map": "/p4-dkt-baepo/static/js/main.cda3333f.chunk.js.map",
+    "main.css": "/p4-dkt-baepo/static/css/main.f615a2a7.chunk.css",
+    "main.js": "/p4-dkt-baepo/static/js/main.1f7d5a1c.chunk.js",
+    "main.js.map": "/p4-dkt-baepo/static/js/main.1f7d5a1c.chunk.js.map",
     "runtime-main.js": "/p4-dkt-baepo/static/js/runtime-main.7bc213bb.js",
     "runtime-main.js.map": "/p4-dkt-baepo/static/js/runtime-main.7bc213bb.js.map",
-    "static/js/2.53419ee3.chunk.js": "/p4-dkt-baepo/static/js/2.53419ee3.chunk.js",
-    "static/js/2.53419ee3.chunk.js.map": "/p4-dkt-baepo/static/js/2.53419ee3.chunk.js.map",
+    "static/js/2.9efb68a2.chunk.js": "/p4-dkt-baepo/static/js/2.9efb68a2.chunk.js",
+    "static/js/2.9efb68a2.chunk.js.map": "/p4-dkt-baepo/static/js/2.9efb68a2.chunk.js.map",
     "index.html": "/p4-dkt-baepo/index.html",
-    "static/js/2.53419ee3.chunk.js.LICENSE.txt": "/p4-dkt-baepo/static/js/2.53419ee3.chunk.js.LICENSE.txt"
+    "static/css/main.f615a2a7.chunk.css.map": "/p4-dkt-baepo/static/css/main.f615a2a7.chunk.css.map",
+    "static/js/2.9efb68a2.chunk.js.LICENSE.txt": "/p4-dkt-baepo/static/js/2.9efb68a2.chunk.js.LICENSE.txt",
+    "static/media/Navigation.css": "/p4-dkt-baepo/static/media/SourceHanSansK-VF.f9792c2f.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.7bc213bb.js",
-    "static/js/2.53419ee3.chunk.js",
-    "static/js/main.cda3333f.chunk.js"
+    "static/js/2.9efb68a2.chunk.js",
+    "static/css/main.f615a2a7.chunk.css",
+    "static/js/main.1f7d5a1c.chunk.js"
   ]
 }
