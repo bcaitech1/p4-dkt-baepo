@@ -4,7 +4,9 @@
 
 .menu__items {
   display: flex;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
