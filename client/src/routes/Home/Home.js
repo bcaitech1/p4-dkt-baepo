@@ -1,64 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Home.css";
+import MenuItem from "./MenuItem";
+import HoverItem from "./HoverItem";
+import MenuLists from "./MenuLists";
 
 function Home() {
+  // 메뉴 객체 리스트를 불러와서 컴포넌트화하고, 배열에 저장한다.
+  let MenuComponents = MenuLists.map((menu, index) => (
+    <li className="menu__item" key={index}>
+      <MenuItem
+        name={menu.name}
+        category={menu.category}
+        title={menu.title}
+        sub_info={menu.sub_info}
+      />
+    </li>
+  ));
+  // 두 번째에 hover item이 들어갈 예정이므로 추가해준다.
+  MenuComponents.splice(
+    1,
+    0,
+    <li className="menu__item bg_blue" key={-1}>
+      <HoverItem />
+    </li>
+  );
+
   return (
     <div className="container">
-      <ul className="menu__items">
-        <li className="menu__item">
-          <Link to="/crews" className="menu__crews">
-            <em className="category">Introduction</em>
-            <div className="title">Crew Intro</div>
-            <div className="sub_info">@Baepo crews</div>
-          </Link>
-        </li>
-        <li className="menu__item bg_blue">
-          <div className="menu__about">
-            <div className="title ft_white">About us</div>
-            <div className="box_info">
-              <em className="category ft_white ft_bold">Team Baepo는?</em>
-              <p className="hover_text">
-                저희는 boostcamp AI Tech 1기
-                <br />
-                Team Baepo 입니다🔥
-                <br />P stage 4 DKT task를 진행하면서 서비스화 한다는
-                마음가짐으로 프로젝트를 진행했습니다.
-                <br />
-                프로젝트의 상세한 내용은 파트별로 나누어 담아보았습니다🙌🏼
-              </p>
-            </div>
-          </div>
-        </li>
-        <li className="menu__item">
-          <Link to="/task" className="menu__task">
-            <em className="category">DKT</em>
-            <div className="title">Task Overview</div>
-            <div className="sub_info">@someone</div>
-          </Link>
-        </li>
-        <li className="menu__item">
-          <Link to="/modeling" className="menu__modeling">
-            <em className="category">Dev story</em>
-            <div className="title">Modeling</div>
-            <div className="sub_info">@someone</div>
-          </Link>
-        </li>
-        <li className="menu__item">
-          <Link to="/frontend" className="menu__frontend">
-            <em className="category">Dev story</em>
-            <div className="title">Frontend</div>
-            <div className="sub_info">@sunhwan</div>
-          </Link>
-        </li>
-        <li className="menu__item">
-          <Link to="/backend" className="menu__backend">
-            <em className="category">Dev story</em>
-            <div className="title">Backend</div>
-            <div className="sub_info">@someone</div>
-          </Link>
-        </li>
-      </ul>
+      <ul className="menu__items">{MenuComponents}</ul>
     </div>
   );
 }
