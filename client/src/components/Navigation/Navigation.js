@@ -7,20 +7,20 @@ function Navigation() {
   return (
     <nav className="nav">
       <Link to="/" className="nav__home">
-        Baepo
+        Team Baepo
       </Link>
       <div className="nav__items">
-        <Link to="/about" className="nav__about">
-          About
-          <BsArrowUpRight className="nav__arrow"></BsArrowUpRight>
-        </Link>
         <Link to="/crews" className="nav__crews">
           Crews
           <BsArrowUpRight className="nav__arrow"></BsArrowUpRight>
         </Link>
+        <Link to="/task" className="nav__task">
+          Task
+          <BsArrowUpRight className="nav__arrow"></BsArrowUpRight>
+        </Link>
         <a
           href="https://boostcamp.connect.or.kr/program_ai.html"
-          class="nav__bcaitech"
+          className="nav__bcaitech"
           target="blank"
         >
           boostcamp
