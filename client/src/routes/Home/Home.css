@@ -19,9 +19,6 @@
   border: 1px solid #000;
   border-collapse: collapse;
   /* border-radius: 200px; */
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .menu__items a {
@@ -79,11 +76,14 @@
 }
 
 .box_info .hover_text {
+  /* margin-top: 3px; */
   display: none;
 }
 
 .menu__items .menu__about:hover .hover_text {
-  font-family: "Nanum Gothic", sans-serif;
+  /* font-family: "Nanum Gothic", sans-serif; */
+  /* font-family: "Disket-Mono-Regular"; */
+  font-size: 14px;
   display: block;
   color: #fff;
 }
