@@ -1,0 +1,48 @@
+data_paths:
+  train_root_dir: D:\Workspace\Python\boostcamp-p4-dkt\data
+  test_root_dir: D:\Workspace\Python\boostcamp-p4-dkt\data
+  asset_dir: ./assets
+  training_data_file: train_data.csv
+  test_data_file: test_data.csv
+
+save_paths:
+  root_dir: ./results/
+  checkpoints_dir: checkpoint/
+  tensorboard_dir: tensorboard/
+  yaml_dir: yaml_log/
+
+hyperparameters:
+  seed: 327459
+  epochs: 20
+  clip_grad: 10
+  patience: 5   # 수정
+
+  dataloader:
+    num_workers: 1
+    batch_size: 64  # 수정
+    max_seq_len: 20
+
+  model:
+    name: LSTMATTN
+    args:
+      hidden_dim: 64
+      n_layers: 2
+      n_heads: 2
+      drop_out: 0.2
+
+  optimizer:
+    name: AdamW
+    args:
+      lr: 0.0001
+      weight_decay: 0.01
+
+  scheduler:
+    name: ReduceLROnPlateau
+    args:
+      patience: 5   # 수정
+      factor: 0.5
+      mode: max
+      verbose: True
+
+trainee_name: DLA_Base
+trainee_type: DktLSTMAttnTrainee
