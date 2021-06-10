@@ -1,0 +1,22 @@
+.task__content {
+  width: 800px;
+  height: 100%;
+  box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 12%);
+  padding: 40px;
+  margin: 10px auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.task__content p {
+  font-family: "Nanum Gothic", sans-serif;
+  align-self: flex-start;
+}
+
+.task__content img {
+  max-width: 100%;
+  max-height: 100%;
+}

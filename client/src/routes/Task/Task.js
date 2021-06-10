@@ -1,8 +1,11 @@
 import React from "react";
-import "./Task.css";
+import { Link } from "react-router-dom";
 
 function Task() {
-  return <span>This is Task!</span>;
+  return (
+    <div className="task__container">
+      <Link to="/crews">To crews</Link>
+    </div>
+  );
 }
-
 export default Task;
