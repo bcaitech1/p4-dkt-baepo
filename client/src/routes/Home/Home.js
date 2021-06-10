@@ -4,7 +4,7 @@ import MenuItem from "./MenuItem";
 import HoverItem from "./HoverItem";
 import MenuLists from "./MenuLists";
 
-function Home() {
+const Home = () => {
   // 메뉴 객체 리스트를 불러와서 컴포넌트화하고, 배열에 저장한다.
   let MenuComponents = MenuLists.map((menu, index) => (
     <li className="menu__item" key={index}>
@@ -30,6 +30,6 @@ function Home() {
       <ul className="menu__items">{MenuComponents}</ul>
     </div>
   );
-}
+};
 
 export default Home;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { BsArrowUpRight } from "react-icons/bs";
 import "./Navigation.css";
 
-function Navigation() {
+const Navigation = () => {
   return (
     <nav className="nav">
       <Link to="/" className="nav__home">
@@ -29,6 +29,6 @@ function Navigation() {
       </div>
     </nav>
   );
-}
+};
 
 export default Navigation;

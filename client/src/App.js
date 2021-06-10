@@ -9,7 +9,7 @@ import Eda from "./routes/Eda/Eda";
 import Model from "./routes/Model/Model";
 import Analysis from "./routes/Analysis/Analysis";
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Navigation />
@@ -24,6 +24,6 @@ function App() {
       </Switch>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function MenuItem({ name, category, title, sub_info }) {
+const MenuItem = ({ name, category, title, sub_info }) => {
   return (
     <Link to={`/${name}`} className={`menu__${name}`}>
       <em className="category">{category}</em>
@@ -10,6 +10,6 @@ function MenuItem({ name, category, title, sub_info }) {
       <div className="sub_info">{sub_info}</div>
     </Link>
   );
-}
+};
 
 export default MenuItem;

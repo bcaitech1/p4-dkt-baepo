@@ -2,7 +2,7 @@
 // hover 이벤트 컴포넌트가 또 필요할 경우 좀더 재사용성을 고려하여 리팩토링하면 될 것 같습니다.
 import React from "react";
 
-function HoverItem() {
+const HoverItem = () => {
   return (
     <div className="menu__about">
       <div className="title ft_white">About us</div>
@@ -23,6 +23,6 @@ function HoverItem() {
       </div>
     </div>
   );
-}
+};
 
 export default HoverItem;
