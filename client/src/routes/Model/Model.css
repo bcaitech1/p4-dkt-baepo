@@ -1,0 +1,10 @@
+.file_upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+label {
+  display: block;
+}
