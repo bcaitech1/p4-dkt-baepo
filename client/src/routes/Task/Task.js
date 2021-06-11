@@ -1,11 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 
-const Task = () => {
-  return (
-    <div className="task__container">
-      <Link to="/crews">To crews</Link>
-    </div>
-  );
+const Task = (props) => {
+  console.log(props);
+  return <span>This is Task!</span>;
 };
 export default Task;

@@ -25,11 +25,7 @@ const Home = () => {
     </li>
   );
 
-  return (
-    <div className="container">
-      <ul className="menu__items">{MenuComponents}</ul>
-    </div>
-  );
+  return <ul className="menu__items">{MenuComponents}</ul>;
 };
 
 export default Home;

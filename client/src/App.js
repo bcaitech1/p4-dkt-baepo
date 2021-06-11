@@ -13,15 +13,17 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navigation />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/crews" component={Crews} />
-        <Route path="/task" component={Task} />
-        <Route path="/eda" component={Eda} />
-        <Route path="/model" component={Model} />
-        <Route path="/analysis" component={Analysis} />
-        <Redirect path="*" to="/" />
-      </Switch>
+      <div className="container">
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/crews" component={Crews} />
+          <Route path="/task" component={Task} />
+          <Route path="/eda" component={Eda} />
+          <Route path="/model" component={Model} />
+          <Route path="/analysis" component={Analysis} />
+          <Redirect path="*" to="/" />
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 };
