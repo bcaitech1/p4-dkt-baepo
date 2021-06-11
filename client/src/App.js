@@ -1,13 +1,8 @@
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Navigation from "./components/Navigation/Navigation";
-import Home from "./routes/Home/Home";
-import Crews from "./routes/Crews/Crews";
-import Task from "./routes/Task/Task";
-import Eda from "./routes/Eda/Eda";
-import Model from "./routes/Model/Model";
-import Analysis from "./routes/Analysis/Analysis";
+import Navigation from "./components/Navigation";
+import { Home, Analysis, Crews, Eda, Model, Task } from "./pages";
 
 const App = () => {
   return (
@@ -21,6 +16,7 @@ const App = () => {
           <Route path="/eda" component={Eda} />
           <Route path="/model" component={Model} />
           <Route path="/analysis" component={Analysis} />
+          {/* Link에서 라우터를 찾을 때, 매칭되는 것이 없다면 Home으로 돌아오게 설정함. 이후에 여유가 되면 page not found도 구현하면 될 듯! */}
           <Redirect path="*" to="/" />
         </Switch>
       </div>
