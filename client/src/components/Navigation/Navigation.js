@@ -14,8 +14,8 @@ const Navigation = () => {
           Crews
           <BsArrowUpRight className="nav__arrow"></BsArrowUpRight>
         </Link>
-        <Link to="/task" className="nav__task">
-          Task
+        <Link to="/model" className="nav__model">
+          Model
           <BsArrowUpRight className="nav__arrow"></BsArrowUpRight>
         </Link>
         <a
