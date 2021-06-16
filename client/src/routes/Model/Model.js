@@ -47,12 +47,6 @@ class Model extends React.Component {
         console.log("3초 뒤에 서버에서 값 받음!!");
         this.setState({ infResult: 0.8498 });
       }, 3000);
-      // csv를 파싱하고 객체에서 데이터만 받아와서 string화 한다.
-      // Papa.parse(inputFile, {
-      //   complete: (results) => {
-      //     this.setState({ converted: results.data.slice(1).toString() });
-      //   },
-      // });
     }
   }
 
