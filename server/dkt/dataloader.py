@@ -142,7 +142,7 @@ class DKTDataset(torch.utils.data.Dataset):
 
         # np.array -> torch.tensor 형변환
         for i, col in enumerate(cate_cols):
-            cate_cols[i] = torch.tensor(col.astype(float))
+            cate_cols[i] = torch.tensor(col)
 
         return cate_cols
 

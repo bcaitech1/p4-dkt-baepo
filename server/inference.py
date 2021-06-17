@@ -31,7 +31,7 @@ class TodoPost(Resource):
     def post(self):
         """Inference 반환."""
         args = parse_args(mode='train')
-        args.model = 'lstmattn'
+        args.model = 'bert'
         device = "cuda" if torch.cuda.is_available() else "cpu"
         args.device = device
 
@@ -52,10 +52,9 @@ class TodoPost(Resource):
 
         total_preds = trainer.inference(args, test_data)
         print('정답')
-        print(type(total_preds), total_preds)
+        print(total_preds)
         print('---------------')
         
-        
         return {
-            'prediction': str(total_preds[0]),
+            'prediction': total_preds,
         }, 201
