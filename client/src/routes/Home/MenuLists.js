@@ -21,13 +21,7 @@ const MenuLists = [
   {
     name: "model",
     category: "Modeling",
-    title: "Model Inference",
-    sub_info: "@someone",
-  },
-  {
-    name: "analysis",
-    category: "Post-stage",
-    title: "Result Analysis",
+    title: "Model & Analysis",
     sub_info: "@someone",
   },
 ];
