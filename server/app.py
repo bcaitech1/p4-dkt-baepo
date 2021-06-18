@@ -6,8 +6,9 @@ from flask_restx import Resource, Api
 # from todo import Todo
 from todo import Todo
 from inference import Inference
+from analysis import Analysis
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 api = Api(
     app,
     version='0.1',
@@ -20,7 +21,8 @@ api = Api(
 
 # api.add_namespace(Todo, '/todos')
 api.add_namespace(Inference, '/inference')
+api.add_namespace(Analysis, '/analysis')
 
 if __name__ == "__main__":
 
-    app.run(debug=True, host='0.0.0.0', port=80)
+    app.run(debug=True, host='0.0.0.0', port=6006)
