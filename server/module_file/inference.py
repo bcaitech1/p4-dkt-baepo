@@ -23,7 +23,7 @@ filterwarnings('ignore')
 pd.options.display.max_columns = 999
 
 
-def inference_plot(model, test_df, FEATURES):
+def inference_plot(model, test_df, FEATURES, return_score):
 
     data = {}
 
@@ -46,26 +46,28 @@ def inference_plot(model, test_df, FEATURES):
 
 
     raw, testing, y = set_df(test_df, FEATURES)
-    print(f"----- 사용 모델 -----\n{model}\n")
+#     print(f"----- 사용 모델 -----\n{model}\n")
     result = model.predict_proba(testing)
     raw['pred'] = result[:,1]
     prob_count = test_df.groupby('userID')['answerCode'].count().to_frame('prob_count')
     raw = pd.merge(raw, prob_count, how='left', on = 'userID')
     raw = raw[['userID','test_group','prob_count','total_prob','user_acc','total_used_time','answerCode','pred']]
+    data = {}
 
-    zero_one_distribution(raw)
-    
-    ax = lgb.plot_importance(model);
-    ax.figure.savefig('static/_00_lgbm_plot_importance.png')
+    if return_score:
+        zero_one_distribution(raw)
 
-    threshold = 0.5
-    accuracy = accuracy_score(y, (raw['pred'] > threshold).astype('int'))
-    roc_auc = roc_auc_score(y, raw['pred'])
-    print(f"----- 추론 결과 -----")
-    print(f"Accuracy_score : {accuracy*100:.1f} %")
-    print(f"ROC_AUC_score : {roc_auc*100:.1f} %")
-    data['acc'] = accuracy
-    data['roc'] = roc_auc
+        ax = lgb.plot_importance(model);
+        ax.figure.savefig('static/_00_lgbm_plot_importance.png')
+
+        threshold = 0.5
+        accuracy = accuracy_score(y, (raw['pred'] > threshold).astype('int'))
+        roc_auc = roc_auc_score(y, raw['pred'])
+#         print(f"----- 추론 결과 -----")
+#         print(f"Accuracy_score : {accuracy*100:.1f} %")
+#         print(f"ROC_AUC_score : {roc_auc*100:.1f} %")
+        data['acc'] = accuracy
+        data['roc'] = roc_auc
     return raw, data
 
 

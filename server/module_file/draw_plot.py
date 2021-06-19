@@ -121,7 +121,6 @@ def zero_one_by_count(raw, count=0):
     :param raw: dataframe for analysis
     :return: None
     """
-
     one = raw[(raw['prob_count'] > count) & (raw['answerCode'] == 1)].sort_values(by='pred', ascending=False)
     zero = raw[(raw['prob_count'] > count) & (raw['answerCode'] == 0)].sort_values(by='pred', ascending=False)
 
@@ -158,15 +157,12 @@ def user_accuracy_prediction(raw, user_acc=0.6, check='upper'):
     :param raw: dataframe for analysis
     :return: None
     """
-
+    
     fig, axes = plt.subplots(3, 1, figsize=(12, 10))
 
     axes[0].hist(raw['user_acc'], bins=50, rwidth=0.85, edgecolor='black')
     axes[0].set_title("user_acc distribution")
 
-    user_acc = 0.6
-
-    check = 'upper'
     if check == 'upper':
         raw_acc = raw[raw['user_acc'] > user_acc]
     elif check == 'lower':

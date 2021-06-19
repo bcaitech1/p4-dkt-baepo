@@ -27,15 +27,15 @@ from module_file.draw_plot import test_group_draw, difference_by_count, zero_one
 
 
 
-def make_result(data_path, df):
+def make_result(data_path, df, result_score):
     plt.style.use('ggplot')
     model, raw_test, FEATURES = load_files(data_path) # 모델, test 원본 데이터, 사용할 FEATURES 불러오기
 
     raw_test = feature_engineering_origin(df) # FE1
     test_df = feature_engineering(raw_test)         # RE2
 
-    raw, score = inference_plot(model, test_df, FEATURES) # raw : inference 후, plot_importance 상위 3개를 포함한 분석용 data
-    return raw
+    raw, score = inference_plot(model, test_df, FEATURES, result_score) # raw : inference 후, plot_importance 상위 3개를 포함한 분석용 data
+    return raw, score
 
 
 

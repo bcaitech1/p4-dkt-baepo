@@ -36,14 +36,14 @@ class AnalysisPost(Resource):
     @Analysis.response(201, 'Success', analysis_fields_with_data)
     @Analysis.response(500, 'Failed')
     def post(self):
-        df = pd.read_csv(request.files.get('data'))
+        df = pd.read_csv('./upload/test.csv')
         data_path = 'data_file'
-        raw = make_result(data_path, df) # 0. plot_importance, 0 & 1 pred histogram
+        raw, score = make_result(data_path, df, False) # 0. plot_importance, 0 & 1 pred histogram
         
         # 2. draw plot
-        param = {'prob_count': int(request.form['prob_count']),
-                 'user_acc': float(request.form['user_acc']),
-                 'check': request.form['check']}  # or 'lower'
+        param = {'prob_count': int(request.form['prob_count']) if request.form['prob_count'] != '' else 0,
+                 'user_acc': float(request.form['user_acc']) if request.form['user_acc'] != '' else 0.6,
+                 'check': request.form['check'] if request.form['check'] != '' else 'upper'}  # or 'lower'
 
         # result analysis
         test_group_draw(raw)                                                              # 1. test_group
@@ -55,8 +55,8 @@ class AnalysisPost(Resource):
         
         
         return {
-            'lgbm_plot_importance' : "_00_lgbm_plot_importance.png",
-            'zero_one_distribution': "_01_zero_one_distribution.png",
+#             'lgbm_plot_importance' : "_00_lgbm_plot_importance.png",
+#             'zero_one_distribution': "_01_zero_one_distribution.png",
             'test_group_accrucy' : "_10_test_group_accrucy",
             'prediction_by_test_group' : "_11_prediction_by_test_group.png",
             'difference_by_count': "_20_difference_by_count.png",
