@@ -19,15 +19,18 @@ Analysis = Namespace(
 )
 
 analysis_fields = Analysis.model('Analysis', {
-    'data': fields.String(description='Input data', required=True, example="Input data for predict result")
-#     'count': fields.Integer(description='Count value', required=True, example="0"),
-#     'user_acc': fields.Integer(description='User_acc value', required=True, example="0.6"),
-#     'check': fields.String(description='check value', required=True, example="upper")
+    'prob_count': fields.Integer(description='Count value', required=True, example="0"),
+    'user_acc': fields.Integer(description='User_acc value', required=True, example="0.6"),
+    'check': fields.String(description='check value', required=True, example="upper"),
 })
 
 analysis_fields_with_data = Analysis.inherit('Analysis images', analysis_fields, {
-    'count_image': fields.String(description='Image for count'),
-    'user_acc_image': fields.String(description='Image for user_acc'),
+    'test_group_accrucy': fields.String(description='Image for test_group_accrucy'),
+    'prediction_by_test_group': fields.String(description='Image for prediction_by_test_group'),
+    'difference_by_count': fields.String(description='Image for difference_by_count'),
+    'prediction_value_by_prob_count': fields.String(description='Image for prediction_value_by_prob_count'),
+    'prediction_value_by_user_accuracy': fields.String(description='Image for prediction_value_by_user_accuracy'),
+    'total_time_to_solve': fields.String(description='Image for total_time_to_solve'),
 })
 
 @Analysis.route('')

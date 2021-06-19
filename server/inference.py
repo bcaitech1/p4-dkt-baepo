@@ -13,13 +13,15 @@ Inference = Namespace(
 )
 
 inference_fields = Inference.model('Inference', {
-    'data': fields.String(description='Input data', required=True, example="Input data for predict result")
+    'data': fields.String(description='Input data file', required=True, example="Input data file for predict result")
 })
 
 inference_fields_with_data = Inference.inherit('Inference With ID', inference_fields, {
     'predict': fields.String(description='a Prediction'),
     'accuracy_score': fields.String(description='a accuracy_score'),
-    'roc_auc_score': fields.String(description='a roc_auc_score')
+    'roc_auc_score': fields.String(description='a roc_auc_score'),
+    'lgbm_plot_importance': fields.String(description='plot of lgbm_plot_importance'),
+    'zero_one_distribution': fields.String(description='plot of zero_one_distribution'),
 })
 
 @Inference.route('')
