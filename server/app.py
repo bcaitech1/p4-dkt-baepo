@@ -11,7 +11,10 @@ from flask_cors import CORS
 
 
 app = Flask(__name__, static_url_path='/static')
-CORS(app)
+cors = CORS(app, resources={
+    r'/p4-dkt-baepo/*': {'origins': 'https://glowing713.github.io'},
+    r'*': {'origins': 'http://localhost:3000'}
+})
 api = Api(
     app,
     version='0.1',
