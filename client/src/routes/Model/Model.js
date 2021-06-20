@@ -79,7 +79,21 @@ class Model extends React.Component {
         // inference 결과로 받아온 모델 score와 플롯 두개를 props로 넘겨주고,
         // analysis 컴포넌트에서 보여준다.
         console.log(this.state.infScore);
-        return <Analysis />;
+        const {
+          prediction,
+          accuracy_score,
+          roc_auc_score,
+          lgbm_plot_importance,
+          zero_one_distribution,
+        } = this.state.infScore;
+        return (
+          <Analysis
+            accuracy={accuracy_score}
+            auroc={roc_auc_score}
+            lgbm_plot={lgbm_plot_importance}
+            zero_one={zero_one_distribution}
+          />
+        );
       }
     }
   }
