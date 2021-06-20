@@ -8,3 +8,15 @@
 label {
   display: block;
 }
+
+.file_upload .file_input {
+  display: none;
+}
+
+.file_upload .file_label {
+  padding: 6px 25px;
+  background-color: #ff6600;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import request
 from flask_restx import Resource, Api, Namespace, fields
 import torch

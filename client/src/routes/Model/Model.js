@@ -22,29 +22,25 @@ class Model extends React.Component {
 
   getModelScore = async () => {
     const { inputFile } = this.state;
-    // const score = await axios.post(process.env.REACT_APP_SERVER + "/analysis", {
-    //   params: {
-    //     data: inputFile,
-    //     prob_count: "0",
-    //     user_acc: "0.6",
-    //     check: "upper",
-    //   },
-    // });
-    // this.setState({ infScore: score });
-    setTimeout(() => {
-      this.setState({ infScore: 1 });
-    }, 3000);
+    const score = await axios.post(
+      process.env.REACT_APP_SERVER + "/inference",
+      {
+        params: {
+          data: inputFile,
+        },
+      }
+    );
+    this.setState({ infScore: score });
   };
 
   modelInference() {
-    this.setState({ isLoading: true }); // 로딩화면으로 전환하기 위해 isLoading state를 true 한다.
-
     // model inference하고 결과 받아오기
     const { inputFile } = this.state;
     if (inputFile === undefined) {
       alert("You forgot data!🤭"); // input없이 화면이 넘어오면 alert
     } else {
-      this.getModelScore(); // 서버 통신
+      this.setState({ isLoading: true }); // isLoading state를 true하며 로딩화면으로 렌더링
+      this.getModelScore(); // 모델 서버와 통신(서버 내에 raw 데이터 생성, 플롯을 response로 받는다.)
     }
   }
 
@@ -53,13 +49,17 @@ class Model extends React.Component {
     console.log("rendering...."); // render function이 call된 것을 확인
 
     // state가 변경되면 rendering이 다시 일어난다.
-    // csv file input을 받으면 button onclick 콜백함수에서 getModelInference가 실행되고
+    // csv file input을 받으면 button onclick 콜백함수로 modelInference가 실행되고
     // isLoading state가 true가 되며 로딩화면이 뜬다.
     if (isLoading === false) {
       return (
         <div className="file_upload">
-          <label>Test Data Input(CSV file)</label>
+          <label className="file_label" htmlFor="file">
+            Test Data Input(CSV file)
+          </label>
           <input
+            id="file"
+            className="file_input"
             type="file"
             accept=".csv"
             onChange={(event) => {
@@ -76,6 +76,9 @@ class Model extends React.Component {
       if (infScore === undefined) {
         return <div>Loading...</div>;
       } else {
+        // inference 결과로 받아온 모델 score와 플롯 두개를 props로 넘겨주고,
+        // analysis 컴포넌트에서 보여준다.
+        console.log(this.state.infScore);
         return <Analysis />;
       }
     }
