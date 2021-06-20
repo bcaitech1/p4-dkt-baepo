@@ -11,9 +11,7 @@ from flask_cors import CORS
 
 
 app = Flask(__name__, static_url_path='/static')
-cors = CORS(app, resources={
-    r'/model': {'origins': '*'}
-})
+CORS(app)
 api = Api(
     app,
     version='0.1',
