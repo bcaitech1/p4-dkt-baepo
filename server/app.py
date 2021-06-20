@@ -7,11 +7,11 @@ from flask_restx import Resource, Api
 from todo import Todo
 from inference import Inference
 from analysis import Analysis
-from flask_cors import CORS
+# from flask_cors import CORS
 
 
 app = Flask(__name__, static_url_path='/static')
-CORS(app)
+# CORS(app)
 api = Api(
     app,
     version='0.1',
