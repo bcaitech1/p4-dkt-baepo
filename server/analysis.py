@@ -66,4 +66,4 @@ class AnalysisPost(Resource):
             'prediction_value_by_prob_count' : "_21_prediction_value_by_prob_count",
             'prediction_value_by_user_accuracy' : "_30_prediction_value_by_user_accuracy.png",
             'total_time_to_solve': "_40_total_time_to_solve.png",
-        }, 201, {'Access-Control-Allow-Origin': '*'}
+        }, 201, {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Method': 'POST'}

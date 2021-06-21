@@ -28,9 +28,6 @@ class Model extends React.Component {
         params: {
           data: inputFile,
         },
-      },
-      {
-        withCredentials: true,
       }
     );
     this.setState({ infScore: score });
