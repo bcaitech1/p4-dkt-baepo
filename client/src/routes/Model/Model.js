@@ -22,11 +22,14 @@ class Model extends React.Component {
 
   getModelScore = async () => {
     const { inputFile } = this.state;
+    let formData = new FormData();
+    formData.append("data", inputFile);
     const score = await axios.post(
       process.env.REACT_APP_SERVER + "/inference",
+      formData,
       {
-        params: {
-          data: inputFile,
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
       }
     );

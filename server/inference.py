@@ -47,4 +47,4 @@ class TodoPost(Resource):
             'roc_auc_score' : score['roc'],
             'lgbm_plot_importance' : "_00_lgbm_plot_importance.png",
             'zero_one_distribution': "_01_zero_one_distribution.png",
-        }, 201, {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS'}
+        }, 201, {'Access-Control-Allow-Origin': 'http://localhost:3000', 'Access-Control-Allow-Methods': 'POST, OPTIONS'}
