@@ -14,9 +14,36 @@ label {
 }
 
 .file_upload .file_label {
+  width: 400px;
+  height: 200px;
   padding: 6px 25px;
-  background-color: #ff6600;
+  background-color: #034dff;
   border-radius: 4px;
   color: white;
   cursor: pointer;
+  font-family: "Disket-Mono-Bold";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px;
+}
+
+.file_upload button {
+  width: 400px;
+  height: 50px;
+  font-family: "Disket-Mono-Regular";
+}
+
+.loading__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading__container .loading__logo {
+  width: 80px;
+  height: 80px;
 }

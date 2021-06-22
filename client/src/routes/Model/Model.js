@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
 import dotenv from "dotenv";
-// import * as Papa from "papaparse";
+import Spinner from "react-bootstrap/Spinner";
+import "bootstrap/dist/css/bootstrap.css";
 import "./Model.css";
 import { Analysis } from "../../pages";
 dotenv.config();
@@ -24,16 +25,20 @@ class Model extends React.Component {
     const { inputFile } = this.state;
     let formData = new FormData();
     formData.append("data", inputFile);
-    const score = await axios.post(
-      process.env.REACT_APP_SERVER + "/inference",
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
-    this.setState({ infScore: score });
+    try {
+      const response = await axios.post(
+        process.env.REACT_APP_SERVER + "/inference",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      this.setState({ infScore: response.data });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   modelInference() {
@@ -49,8 +54,7 @@ class Model extends React.Component {
 
   render() {
     const { isLoading, infScore } = this.state;
-    console.log("rendering...."); // render function이 call된 것을 확인
-
+    // console.log("rendering...."); // render function이 call된 것을 확인
     // state가 변경되면 rendering이 다시 일어난다.
     // csv file input을 받으면 button onclick 콜백함수로 modelInference가 실행되고
     // isLoading state가 true가 되며 로딩화면이 뜬다.
@@ -58,7 +62,7 @@ class Model extends React.Component {
       return (
         <div className="file_upload">
           <label className="file_label" htmlFor="file">
-            Test Data Input(CSV file)
+            📂Input file here(.csv)📂
           </label>
           <input
             id="file"
@@ -71,17 +75,24 @@ class Model extends React.Component {
               });
             }}
           />
-          <button onClick={this.modelInference}>Inference🔎</button>
+          <button onClick={this.modelInference}>Start Inference🔎</button>
         </div>
       );
     } else {
       // inference 결과를 받기 전까지 로딩화면을 띄운다.
       if (infScore === undefined) {
-        return <div>Loading...</div>;
+        return (
+          <div className="loading__container">
+            <Spinner
+              className="loading__logo"
+              animation="border"
+              variant="primary"
+            />
+          </div>
+        );
       } else {
         // inference 결과로 받아온 모델 score와 플롯 두개를 props로 넘겨주고,
         // analysis 컴포넌트에서 보여준다.
-        console.log(this.state.infScore);
         const {
           prediction,
           accuracy_score,
