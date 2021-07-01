@@ -24,41 +24,38 @@ class Model extends React.Component {
   }
 
   getModelScore = async () => {
+    // const { inputFile } = this.state;
     this.setState({ isLoading: true }); // isLoading state를 true하며 로딩화면으로 렌더링
-    let formData = new FormData();
-    // formData.append("data", test_data);
-    // console.log(formData.getAll());
+    // let formData = new FormData();
+    // formData.append("data", inputFile); // formdata에 data: File 형태로 저장된다.
     try {
-      const response = await axios.post(
-        process.env.REACT_APP_SERVER + "/inference",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+      // const response = await axios.post(
+      //   process.env.REACT_APP_SERVER + "/inference",
+      //   formData,
+      //   {
+      //     headers: {
+      //       "Content-Type": "multipart/form-data",
+      //     },
+      //   }
+      // );
+      const response = await axios.get(
+        process.env.REACT_APP_SERVER + "/inference"
       );
       this.setState({ infScore: response.data });
     } catch (err) {
-      console.log(err);
+      console.log("Error 발생!!!: " + err);
     }
   };
 
   modelInference() {
     // model inference하고 결과 받아오기
-    // const { inputFile } = this.state;
-    // if (inputFile === undefined) {
-    //   alert("You forgot data!🤭"); // input없이 화면이 넘어오면 alert
-    // } else {
-    //   this.setState({ isLoading: true }); // isLoading state를 true하며 로딩화면으로 렌더링
-    //   this.getModelScore(); // 모델 서버와 통신(서버 내에 raw 데이터 생성, 플롯을 response로 받는다.)
-    // }
-    // d3.csv(test_data, (data) => {
-    //   console.log(data);
-    // });
-    // let formData = new FormData();
-    // formData.append("data", test_data);
-    // console.log(formData.getAll("data"));
+    const { inputFile } = this.state;
+    if (inputFile === undefined) {
+      alert("You forgot data!🤭"); // input없이 화면이 넘어오면 alert
+    } else {
+      this.setState({ isLoading: true }); // isLoading state를 true하며 로딩화면으로 렌더링
+      this.getModelScore(); // 모델 서버와 통신(서버 내에 raw 데이터 생성, 플롯을 response로 받는다.)
+    }
   }
 
   render() {
@@ -84,7 +81,7 @@ class Model extends React.Component {
               });
             }}
           /> */}
-          <button onClick={this.modelInference}>Start Inference🔎</button>
+          <button onClick={this.getModelScore}>Start Inference🔎</button>
         </div>
       );
     } else {

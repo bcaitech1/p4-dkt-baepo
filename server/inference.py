@@ -30,10 +30,9 @@ class TodoPost(Resource):
     @Inference.expect(inference_fields)
     @Inference.response(201, 'Success', inference_fields_with_data)
     @Inference.response(500, 'Failed')
-    def post(self):
+    def get(self):
         """Inference 반환."""
-        df = pd.read_csv(request.files.get('data'))
-        df.to_csv('./upload/test.csv')
+        df = pd.read_csv('./upload/test.csv')
         data_path = 'data_file'
         raw, score = make_result(data_path, df, True) # 0. plot_importance, 0 & 1 pred histogram
         
@@ -45,4 +44,4 @@ class TodoPost(Resource):
             'roc_auc_score' : score['roc'],
             'lgbm_plot_importance' : "_00_lgbm_plot_importance.png",
             'zero_one_distribution': "_01_zero_one_distribution.png",
-        }, 201, {'Access-Control-Allow-Origin': 'http://localhost:3000, https://baepo.netlify.app', 'Access-Control-Allow-Methods': 'POST, OPTIONS'}
+        }, 201, {'Access-Control-Allow-Origin': 'http://localhost:3000, https://baepo.netlify.app', 'Access-Control-Allow-Methods': 'GET'}
