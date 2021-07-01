@@ -5,39 +5,23 @@ import Spinner from "react-bootstrap/Spinner";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "./Model.css";
-
 import { Analysis } from "../../pages";
+
 dotenv.config();
 
 class Model extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputFile: undefined,
       infScore: undefined,
       isLoading: false,
-      // converted: "",
     };
-    // this.convertCSVtoString = this.convertCSVtoString.bind(this);
-    this.modelInference = this.modelInference.bind(this);
     this.getModelScore = this.getModelScore.bind(this);
   }
 
   getModelScore = async () => {
-    // const { inputFile } = this.state;
     this.setState({ isLoading: true }); // isLoading state를 true하며 로딩화면으로 렌더링
-    // let formData = new FormData();
-    // formData.append("data", inputFile); // formdata에 data: File 형태로 저장된다.
     try {
-      // const response = await axios.post(
-      //   process.env.REACT_APP_SERVER + "/inference",
-      //   formData,
-      //   {
-      //     headers: {
-      //       "Content-Type": "multipart/form-data",
-      //     },
-      //   }
-      // );
       const response = await axios.get(
         process.env.REACT_APP_SERVER + "/inference"
       );
@@ -46,17 +30,6 @@ class Model extends React.Component {
       console.log("Error 발생!!!: " + err);
     }
   };
-
-  modelInference() {
-    // model inference하고 결과 받아오기
-    const { inputFile } = this.state;
-    if (inputFile === undefined) {
-      alert("You forgot data!🤭"); // input없이 화면이 넘어오면 alert
-    } else {
-      this.setState({ isLoading: true }); // isLoading state를 true하며 로딩화면으로 렌더링
-      this.getModelScore(); // 모델 서버와 통신(서버 내에 raw 데이터 생성, 플롯을 response로 받는다.)
-    }
-  }
 
   render() {
     const { isLoading, infScore } = this.state;
@@ -67,20 +40,6 @@ class Model extends React.Component {
     if (isLoading === false) {
       return (
         <div className="file_upload">
-          {/* <label className="file_label" htmlFor="file">
-            📂Input file here(.csv)📂
-          </label>
-          <input
-            id="file"
-            className="file_input"
-            type="file"
-            accept=".csv"
-            onChange={(event) => {
-              this.setState({
-                inputFile: event.target.files[0],
-              });
-            }}
-          /> */}
           <button onClick={this.getModelScore}>Start Inference🔎</button>
         </div>
       );
@@ -119,19 +78,3 @@ class Model extends React.Component {
 }
 
 export default Model;
-
-// csv를 string으로 파싱하고 converted state를 업데이트한다.
-// convertCSVtoString() {
-//   const { inputFile } = this.state;
-//   // console.log(inputFile);
-//   if (inputFile === undefined) {
-//     alert("You forgot data!🤭");
-//   } else {
-//     // csv를 파싱하고 객체에서 데이터만 받아와서 string화 한다.
-//     Papa.parse(inputFile, {
-//       complete: (results) => {
-//         this.setState({ converted: results.data.slice(1).toString() });
-//       },
-//     });
-//   }
-// }
