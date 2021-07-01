@@ -40,8 +40,8 @@ class TodoPost(Resource):
         
         print('결과', raw['pred'].iloc[-1])
         response_header['Access-Control-Allow-Methods'] = 'GET'
-        if request.header['Origin'] in allowed_origins:
-            response_header['Access-Control-Allow-Origin'] = request.header['Origin']
+        if request.headers['Origin'] in allowed_origins:
+            response_header['Access-Control-Allow-Origin'] = request.headers['Origin']
 
         return {
             'prediction': raw['pred'].iloc[-1],
