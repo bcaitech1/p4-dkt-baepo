@@ -30,16 +30,18 @@ class TodoPost(Resource):
     @Inference.expect(inference_fields)
     @Inference.response(201, 'Success', inference_fields_with_data)
     @Inference.response(500, 'Failed')
-    def get(self):
+    def post(self):
         response_header = dict()
         allowed_origins = ['http://localhost:3000', 'https://baepo.netlify.app']
         """Inference 반환."""
-        df = pd.read_csv('./upload/test.csv')
+        df = pd.read_csv(request.files.get('data'))
+        df.to_csv('./upload/test.csv')
         data_path = 'data_file'
         raw, score = make_result(data_path, df, True) # 0. plot_importance, 0 & 1 pred histogram
         
         print('결과', raw['pred'].iloc[-1])
-        response_header['Access-Control-Allow-Methods'] = 'GET'
+        # response header Dict 객체
+        response_header['Access-Control-Allow-Methods'] = 'POST'
         if request.headers['Origin'] in allowed_origins:
             response_header['Access-Control-Allow-Origin'] = request.headers['Origin']
 
