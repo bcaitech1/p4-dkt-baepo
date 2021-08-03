@@ -1,4 +1,4 @@
-# Baepo - 학생 맞춤형 학습 지도 서비스
+# Baepo - DKT task 연구 페이지
 
 ## 🔎 Overview
 > [Web demo](https://baepo.netlify.app/)
