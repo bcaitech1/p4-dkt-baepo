@@ -1,11 +1,21 @@
-# Baepo Client - 학생 맞춤형 학습 지도 서비스
+# Baepo Client - DKT task 연구 페이지 
 
-## 🔎 Overview
+### 🔎 Overview
 > [Web demo](https://baepo.netlify.app/)
 
-## 🧑🏻‍💻 Dev Stage
+### 🧑🏻‍💻 NPM CLIs
 
+#### Install project
 ```
-npm run deploy
+$ npm install
 ```
-- product build부터 gh-pages deploy까지 수행한다.
+
+#### Build project
+```
+$ npm build
+```
+
+#### Start project
+```
+$ npm start
+```
