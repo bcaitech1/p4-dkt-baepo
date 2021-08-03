@@ -13,23 +13,44 @@ class Model extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      inputFile: undefined,
       infScore: undefined,
       isLoading: false,
     };
     this.getModelScore = this.getModelScore.bind(this);
+    this.modelInference = this.modelInference.bind(this);
   }
 
   getModelScore = async () => {
-    this.setState({ isLoading: true }); // isLoading state를 true하며 로딩화면으로 렌더링
+    const { inputFile } = this.state;
+    let formData = new FormData();
+    formData.append("data", inputFile);
     try {
-      const response = await axios.get(
-        process.env.REACT_APP_SERVER + "/inference"
+      const response = await axios.post(
+        process.env.REACT_APP_SERVER + "/inference",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       this.setState({ infScore: response.data });
     } catch (err) {
       console.log("Error 발생!!!: " + err);
     }
   };
+
+  modelInference() {
+    // model inference하고 결과 받아오기
+    const { inputFile } = this.state;
+    if (inputFile === undefined) {
+      alert("You forgot data!🤭"); // input없이 화면이 넘어오면 alert
+    } else {
+      this.setState({ isLoading: true }); // isLoading state를 true하며 로딩화면으로 렌더링
+      this.getModelScore(); // 모델 서버와 통신(서버 내에 raw 데이터 생성, 플롯을 response로 받는다.)
+    }
+  }
 
   render() {
     const { isLoading, infScore } = this.state;
@@ -40,10 +61,25 @@ class Model extends React.Component {
     if (isLoading === false) {
       return (
         <div className="file_upload">
-          <button onClick={this.getModelScore}>Start Inference🔎</button>
+          <label className="file_label" htmlFor="file">
+            📂 Input file(csv) 📂
+          </label>
+          <input
+            id="file"
+            className="file_input"
+            type="file"
+            accept=".csv"
+            onChange={(event) => {
+              this.setState({
+                inputFile: event.target.files[0],
+              });
+            }}
+          />
+          <button onClick={this.modelInference}>Start Inference🔎</button>
         </div>
       );
     } else {
+      // modelInference 메서드에서 inputFile이 들어온 것을 체크해서 isLoading이 true가 된다면
       // inference 결과를 받기 전까지 로딩화면을 띄운다.
       if (infScore === undefined) {
         return (
