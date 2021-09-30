@@ -5,17 +5,17 @@
 
 ### 🧑🏻‍💻 NPM CLIs
 
-#### Install project
-```
+```javascript
+// Install project
 $ npm install
-```
-
-#### Build project
-```
+// Build project
 $ npm build
+// Start project
+$ npm start
 ```
 
-#### Start project
+### ✍🏻 To-Do lists
+- [ ] Add TypeScript to an existing Create React App project
 ```
-$ npm start
+$ npm install --save typescript @types/node @types/react @types/react-dom @types/jest
 ```
