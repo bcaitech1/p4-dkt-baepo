@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BsArrowUpRight } from "react-icons/bs";
 import "./Navigation.css";
 
 const Navigation = () => {
@@ -10,13 +9,14 @@ const Navigation = () => {
         Team Baepo
       </Link>
       <div className="nav__items">
-        <Link to="/crews" className="nav__crews">
-          Crews
-          <BsArrowUpRight className="nav__arrow"></BsArrowUpRight>
+        <Link to="/task" className="nav__task">
+          Task_Overview
+        </Link>
+        <Link to="/eda" className="nav__eda">
+          Data_EDA
         </Link>
         <Link to="/model" className="nav__model">
-          Model
-          <BsArrowUpRight className="nav__arrow"></BsArrowUpRight>
+          Model&Analysis
         </Link>
         <a
           href="https://boostcamp.connect.or.kr/program_ai.html"
@@ -24,7 +24,6 @@ const Navigation = () => {
           target="blank"
         >
           boostcamp
-          <BsArrowUpRight className="nav__arrow"></BsArrowUpRight>
         </a>
       </div>
     </nav>
