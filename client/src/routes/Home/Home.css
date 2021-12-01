@@ -17,7 +17,7 @@
   /* border-radius: 200px; */
 }
 
-.menu__items a {
+.menu__items .menu__item a {
   width: 360px;
   height: 360px;
   padding: 30px;
