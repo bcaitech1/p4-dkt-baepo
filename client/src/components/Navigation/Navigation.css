@@ -10,39 +10,70 @@
 .nav {
   position: fixed;
   width: 100%;
+  height: 60px;
   background-color: white;
-  height: 95px;
+  border-bottom: 1px solid transparent;
+  border-bottom-color: rgba(0, 27, 55, 0.1);
+}
+
+.nav .nav__container {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  /* max-width: 1140px; */
+}
+
+.nav__container .nav__container__inner {
+  width: 73%;
+  height: 100%;
+  /* max-width: calc(100% - 48px); */
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
+}
+
+.nav .nav__home__container {
+  display: flex;
   align-items: center;
+  margin-right: 24px;
 }
 
-.nav a {
-  text-decoration: none;
-  color: black;
-}
-
-.nav .nav__home {
+.nav__home__container .nav__home {
+  display: flex;
+  align-items: center;
   font-family: "Disket-Mono-Bold";
-  font-size: 30px;
-  margin-left: 80px;
-  text-decoration: none;
+  font-size: 25px;
+  width: 100px;
 }
 
-.nav .nav__items {
+.nav__container__inner .nav__item__container {
+  display: flex;
+  overflow-y: hidden;
+  max-height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__item__container .nav__item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.nav__item > a {
   font-family: "Disket-Mono-Regular";
-  font-size: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 12px 10px;
+  color: #4e5968;
+  border-radius: 8px;
+  border: 0;
 }
 
-.nav__items .nav__model,
-.nav__items .nav__crews,
-.nav__items .nav__bcaitech {
-  margin-left: 20px;
-  margin-right: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.nav__item > a:hover {
+  background-color: rgba(2, 32, 71, 0.05);
 }

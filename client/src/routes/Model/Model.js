@@ -3,7 +3,6 @@ import axios from "axios";
 import dotenv from "dotenv";
 import Spinner from "react-bootstrap/Spinner";
 
-import "bootstrap/dist/css/bootstrap.css";
 import "./Model.css";
 import { Analysis } from "../../pages";
 
