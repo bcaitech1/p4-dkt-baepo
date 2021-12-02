@@ -3,6 +3,15 @@ import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 const Navigation = () => {
+  window.addEventListener("scroll", (e) => {
+    const navbar = document.getElementsByClassName("nav");
+    if (window.scrollY) {
+      navbar[0].classList.add("nav__bottom__border");
+    } else {
+      navbar[0].classList.remove("nav__bottom__border");
+    }
+  });
+
   return (
     <nav className="nav">
       <div className="nav__container">

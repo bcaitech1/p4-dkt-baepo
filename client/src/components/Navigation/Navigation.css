@@ -13,6 +13,9 @@
   height: 60px;
   background-color: white;
   border-bottom: 1px solid transparent;
+}
+
+.nav__bottom__border {
   border-bottom-color: rgba(0, 27, 55, 0.1);
 }
 
@@ -64,7 +67,7 @@
 }
 
 .nav__item > a {
-  font-family: "Disket-Mono-Regular";
+  /* font-family: "Disket-Mono-Regular"; */
   display: flex;
   justify-content: center;
   align-items: center;
