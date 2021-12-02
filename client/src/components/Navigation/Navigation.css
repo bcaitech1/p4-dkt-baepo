@@ -44,7 +44,8 @@
 .nav__home__container .nav__home {
   display: flex;
   align-items: center;
-  font-family: "Disket-Mono-Bold";
+  /* font-family: "Disket-Mono-Bold"; */
+  font-weight: bold;
   font-size: 25px;
   width: 100px;
 }
