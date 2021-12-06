@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 const Navigation = () => {
+  // 스크롤바를 조금이라도 내리게 되면 navbar의 bottom border에 색을 입히는 효과가 추가됨.
   window.addEventListener("scroll", (e) => {
     const navbar = document.getElementsByClassName("nav");
     if (window.scrollY) {
