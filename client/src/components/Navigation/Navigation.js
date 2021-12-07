@@ -26,17 +26,17 @@ const Navigation = () => {
           <div className="nav__item__container">
             <div className="nav__item">
               <Link to="/task" className="nav__task">
-                About_DKT
+                About DKT
               </Link>
             </div>
             <div className="nav__item">
               <Link to="/eda" className="nav__eda">
-                Data_EDA
+                Data EDA
               </Link>
             </div>
             <div className="nav__item">
               <Link to="/model" className="nav__model">
-                Model_Analysis
+                Model Analysis
               </Link>
             </div>
             <div className="nav__item">
@@ -45,7 +45,7 @@ const Navigation = () => {
                 className="nav__bcaitech"
                 target="blank"
               >
-                boostcamp
+                boostcamp AI Tech
               </a>
             </div>
           </div>
