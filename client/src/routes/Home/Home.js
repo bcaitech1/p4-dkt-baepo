@@ -25,7 +25,8 @@ const Home = () => {
     </li>
   );
 
-  return <ul className="menu__items">{MenuComponents}</ul>;
+  // return <ul className="menu__items">{MenuComponents}</ul>;
+  return <div>Temporary Home</div>;
 };
 
 export default Home;
